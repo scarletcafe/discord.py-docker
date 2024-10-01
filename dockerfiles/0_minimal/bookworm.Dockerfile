@@ -1,8 +1,18 @@
-{% include 'WARNING' %}
+#
+# WARNING: THIS DOCKERFILE IS AUTO-GENERATED
+# DIRECT EDITS WILL BE DESTROYED WHEN THIS FILE IS NEXT GENERATED
+# PLEASE EDIT THE TEMPLATES INSTEAD OF THIS FILE
+#
 ARG PYTHON_VERSION
 
-FROM python:$PYTHON_VERSION-slim-bullseye
-{% include 'LABEL' %}
+FROM python:$PYTHON_VERSION-bookworm
+
+ARG BUILD_TIME=unknown
+ARG GIT_HEAD=unknown
+LABEL maintainer="Devon R <Gorialis>"
+LABEL creation_time="2024-10-01 17:22:38 UTC"
+LABEL build_time=$BUILD_TIME
+LABEL git_head=$GIT_HEAD
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
@@ -11,7 +21,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 RUN apt-get update && \
     # basic deps
-    apt-get install -y -qq git mercurial cloc openssl ssh gettext sudo build-essential wget \
+    apt-get install -y -qq git mercurial cloc openssl ssh gettext sudo build-essential \
     # voice support
     libffi-dev libsodium-dev libopus-dev ffmpeg \
     # apt is so noisy

@@ -1,7 +1,7 @@
 {% include 'WARNING' %}
 ARG PYTHON_VERSION
 
-FROM python:$PYTHON_VERSION-slim-bullseye
+FROM python:$PYTHON_VERSION-slim-bookworm
 {% include 'LABEL' %}
 
 ENV RUSTUP_HOME=/usr/local/rustup \

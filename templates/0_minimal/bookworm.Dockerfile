@@ -1,7 +1,7 @@
 {% include 'WARNING' %}
 ARG PYTHON_VERSION
 
-FROM python:$PYTHON_VERSION-slim-bullseye
+FROM python:$PYTHON_VERSION-bookworm
 {% include 'LABEL' %}
 
 ENV RUSTUP_HOME=/usr/local/rustup \
@@ -11,7 +11,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 RUN apt-get update && \
     # basic deps
-    apt-get install -y -qq git mercurial cloc openssl ssh gettext sudo build-essential wget \
+    apt-get install -y -qq git mercurial cloc openssl ssh gettext sudo build-essential \
     # voice support
     libffi-dev libsodium-dev libopus-dev ffmpeg \
     # apt is so noisy
