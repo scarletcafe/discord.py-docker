@@ -23,8 +23,8 @@ env:
   PYTHON_3_12_IMAGE: "3.12.6"
   PYTHON_3_12_TAGS: "3.12.6 3.12 ."
 
-  PYTHON_3_13_IMAGE: "3.13.0rc2"
-  PYTHON_3_13_TAGS: "3.13.0rc2 3.13.0 3.13"
+  #PYTHON_3_13_IMAGE: "3.13.0rc2"
+  #PYTHON_3_13_TAGS: "3.13.0rc2 3.13.0 3.13"
 
 jobs:
   setup:
@@ -65,7 +65,7 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
+        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
     steps:
       - uses: actions/checkout@v4
 
@@ -90,7 +90,7 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
+        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
     steps:
       - uses: actions/checkout@v4
 
@@ -115,7 +115,7 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
+        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
     steps:
       - uses: actions/checkout@v4
 
@@ -140,7 +140,7 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
+        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
     steps:
       - uses: actions/checkout@v4
 
