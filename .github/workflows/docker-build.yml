@@ -30,10 +30,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -54,7 +54,7 @@ jobs:
           find ./ -name "*.sh" -exec chmod +x {} \;
           cd ..
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: dockerfiles
           path: dockerfiles
@@ -67,9 +67,9 @@ jobs:
       matrix:
         python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v4
         with:
           name: dockerfiles
 
@@ -83,7 +83,7 @@ jobs:
           ./deploy_target.sh 0_minimal ${PYTHON_${{ matrix.python-version }}_IMAGE}
           cd ..
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: dockerfiles
           path: dockerfiles
@@ -96,9 +96,9 @@ jobs:
       matrix:
         python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v4
         with:
           name: dockerfiles
 
@@ -112,7 +112,7 @@ jobs:
           ./deploy_target.sh 1_full ${PYTHON_${{ matrix.python-version }}_IMAGE}
           cd ..
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: dockerfiles
           path: dockerfiles
@@ -125,9 +125,9 @@ jobs:
       matrix:
         python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v4
         with:
           name: dockerfiles
 
@@ -141,7 +141,7 @@ jobs:
           ./deploy_target.sh 2_extra ${PYTHON_${{ matrix.python-version }}_IMAGE}
           cd ..
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: dockerfiles
           path: dockerfiles
@@ -154,9 +154,9 @@ jobs:
       matrix:
         python-version: [3_8, 3_9, 3_10, 3_11, 3_12, 3_13]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v4
         with:
           name: dockerfiles
 
@@ -170,7 +170,7 @@ jobs:
           ./deploy_target.sh discordpy ${PYTHON_${{ matrix.python-version }}_IMAGE}
           cd ..
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: dockerfiles
           path: dockerfiles
