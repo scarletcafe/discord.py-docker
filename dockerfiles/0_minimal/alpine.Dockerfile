@@ -10,7 +10,7 @@ FROM python:$PYTHON_VERSION-alpine
 ARG BUILD_TIME=unknown
 ARG GIT_HEAD=unknown
 LABEL maintainer="Devon R <Gorialis>"
-LABEL creation_time="2024-10-01 17:58:02 UTC"
+LABEL creation_time="2026-04-14 21:04:23 UTC"
 LABEL build_time=$BUILD_TIME
 LABEL git_head=$GIT_HEAD
 
@@ -18,7 +18,7 @@ ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/lib \
     RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.81.0
+    RUST_VERSION=1.94.1
 
 # add extra apk repositories to allow more deps to be resolved in-house
 RUN \
@@ -33,11 +33,11 @@ RUN \
     # install rust with rustup
     unameArch="$(uname -m)" && \
     case "${unameArch##*-}" in \
-        x86_64) rustArch='x86_64-unknown-linux-musl'; rustupSha256='1455d1df3825c5f24ba06d9dd1c7052908272a2cae9aa749ea49d67acbe22b47' ;; \
-        aarch64) rustArch='aarch64-unknown-linux-musl'; rustupSha256='7087ada906cd27a00c8e0323401a46804a03a742bd07811da6dead016617cc64' ;; \
+        x86_64) rustArch='x86_64-unknown-linux-musl'; rustupSha256='9cd3fda5fd293890e36ab271af6a786ee22084b5f6c2b83fd8323cec6f0992c1' ;; \
+        aarch64) rustArch='aarch64-unknown-linux-musl'; rustupSha256='88761caacddb92cd79b0b1f939f3990ba1997d701a38b3e8dd6746a562f2a759' ;; \
         *) echo >&2 "unsupported architecture: $apkArch"; exit 1 ;; \
     esac && \
-    rustup_url="https://static.rust-lang.org/rustup/archive/1.27.1/${rustArch}/rustup-init" && \
+    rustup_url="https://static.rust-lang.org/rustup/archive/1.29.0/${rustArch}/rustup-init" && \
     wget "$rustup_url" && \
     echo "${rustupSha256} *rustup-init" | sha256sum -c - && \
     chmod +x rustup-init && \

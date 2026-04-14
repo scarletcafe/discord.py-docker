@@ -1,18 +1,8 @@
-#
-# WARNING: THIS DOCKERFILE IS AUTO-GENERATED
-# DIRECT EDITS WILL BE DESTROYED WHEN THIS FILE IS NEXT GENERATED
-# PLEASE EDIT THE TEMPLATES INSTEAD OF THIS FILE
-#
+{% include 'WARNING' %}
 ARG PYTHON_VERSION
 
-FROM python:$PYTHON_VERSION-bookworm
-
-ARG BUILD_TIME=unknown
-ARG GIT_HEAD=unknown
-LABEL maintainer="Devon R <Gorialis>"
-LABEL creation_time="2026-04-14 21:04:23 UTC"
-LABEL build_time=$BUILD_TIME
-LABEL git_head=$GIT_HEAD
+FROM python:$PYTHON_VERSION-trixie
+{% include 'LABEL' %}
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \

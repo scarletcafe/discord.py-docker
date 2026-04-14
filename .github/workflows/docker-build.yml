@@ -8,34 +8,32 @@ on:
     - cron: "0 12 * * 0,2,4,6"
 
 env:
-  PYTHON_3_8_IMAGE: "3.8.20"
-  PYTHON_3_8_TAGS: "3.8.20 3.8"
 
-  PYTHON_3_9_IMAGE: "3.9.20"
-  PYTHON_3_9_TAGS: "3.9.20 3.9"
+  PYTHON_3_10_IMAGE: "3.10.20"
+  PYTHON_3_10_TAGS: "3.10.20 3.10"
 
-  PYTHON_3_10_IMAGE: "3.10.15"
-  PYTHON_3_10_TAGS: "3.10.15 3.10"
+  PYTHON_3_11_IMAGE: "3.11.15"
+  PYTHON_3_11_TAGS: "3.11.15 3.11"
 
-  PYTHON_3_11_IMAGE: "3.11.10"
-  PYTHON_3_11_TAGS: "3.11.10 3.11"
+  PYTHON_3_12_IMAGE: "3.12.13"
+  PYTHON_3_12_TAGS: "3.12.13 3.12"
 
-  PYTHON_3_12_IMAGE: "3.12.6"
-  PYTHON_3_12_TAGS: "3.12.6 3.12 ."
+  PYTHON_3_13_IMAGE: "3.13.13"
+  PYTHON_3_13_TAGS: "3.13.13 3.13"
 
-  #PYTHON_3_13_IMAGE: "3.13.0rc2"
-  #PYTHON_3_13_TAGS: "3.13.0rc2 3.13.0 3.13"
+  PYTHON_3_14_IMAGE: "3.14.4"
+  PYTHON_3_14_TAGS: "3.14.4 3.14 ."
 
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: '3.14'
 
       - name: Ensure login succeeds for Docker Hub and GitHub registry
         shell: bash
@@ -54,7 +52,7 @@ jobs:
           find ./ -name "*.sh" -exec chmod +x {} \;
           cd ..
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dockerfiles-1
           path: dockerfiles
@@ -65,11 +63,11 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
+        python-version: [3_10, 3_11, 3_12, 3_13, 3_14]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dockerfiles-1
           path: dockerfiles
@@ -90,11 +88,11 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
+        python-version: [3_10, 3_11, 3_12, 3_13, 3_14]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dockerfiles-1
           path: dockerfiles
@@ -115,11 +113,11 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
+        python-version: [3_10, 3_11, 3_12, 3_13, 3_14]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dockerfiles-1
           path: dockerfiles
@@ -140,11 +138,11 @@ jobs:
     strategy:
       max-parallel: 8
       matrix:
-        python-version: [3_8, 3_9, 3_10, 3_11, 3_12]
+        python-version: [3_10, 3_11, 3_12, 3_13, 3_14]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dockerfiles-1
           path: dockerfiles

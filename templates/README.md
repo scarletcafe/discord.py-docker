@@ -2,6 +2,27 @@
 
 ## Notices (most recent first)
 
+### 2026-04-14
+
+A large number of updates have been done:
+
+- Python versions 3.13 and 3.14 added
+- Python versions 3.8 and 3.9 removed (the Python base images for this version are no longer updated, upgrade to something newer)
+- Debian trixie has been added
+- Debian bullseye has been removed (the Python base images for this version are no longer updated, upgrade to something newer)
+- The bundled Rust installation has been upgraded from 1.81.0 to 1.94.1
+- The bundled `rustup` has been upgraded from 1.27.1 to 1.29.0
+
+As you may have guessed from the large gaps between updates, this image is not maintained with a large amount of active effort any more.
+
+At the time this image and its build pipeline was devised, there was a large amount of inconsistency in terms of package availability, and it was often difficult to get built wheels on supported platforms.
+
+There were also a larger amount of bot creators hosting multiple different bots on the same machine, and this image helped them make use of Docker's file system forking capability to save space between those instances.
+
+Many of these previous packaging issues are no longer the case, and bot development by small developers is a lot less popular, with larger bots having their own infrastructure and not needing images like these.
+
+This is hence your forewarning that this may be the last time this image receives updates. You should consider making your own purpose-built image.
+
 ### 2022-11-21
 
 The main Debian image has been upgraded from `buster` to `bullseye`, 3.11 builds are added, and the new image tag names are updated to reflect the correct versions.
