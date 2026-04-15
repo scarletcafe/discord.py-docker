@@ -12,6 +12,7 @@ A large number of updates have been done:
 - Debian bullseye has been removed (the Python base images for this version are no longer updated, upgrade to something newer)
 - The bundled Rust installation has been upgraded from 1.81.0 to 1.94.1
 - The bundled `rustup` has been upgraded from 1.27.1 to 1.29.0
+- Deno has been added to the image
 - `youtube_dl` has been replaced with `yt-dlp`
 
 As you may have guessed from the large gaps between updates, this image is not maintained with a large amount of active effort any more.

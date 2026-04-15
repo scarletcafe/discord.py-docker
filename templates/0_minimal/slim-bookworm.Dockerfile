@@ -37,6 +37,9 @@ RUN apt-get update && \
     rustup --version && \
     cargo --version && \
     rustc --version && \
+    # install deno
+    curl -fsSL https://deno.land/install.sh | sh && \
+    deno --version && \
     # do this symlink for numpy
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
     # update pip, install Cython, pytest, yt-dlp
