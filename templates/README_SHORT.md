@@ -10,6 +10,7 @@ A large number of updates have been done:
 - Debian bullseye has been removed (the Python base images for this version are no longer updated, upgrade to something newer)
 - The bundled Rust installation has been upgraded from 1.81.0 to 1.94.1
 - The bundled `rustup` has been upgraded from 1.27.1 to 1.29.0
+- `youtube_dl` has been replaced with `yt-dlp`
 
 As you may have guessed from the large gaps between updates, this image is not maintained with a large amount of active effort any more.
 
@@ -32,7 +33,7 @@ This image comes in few variants depending on your use case:
 
 ### `discord.py:minimal`
 
-This is the base, and therefore smallest, image. It contains only `discord.py` with voice and docs support, including ffmpeg and youtube-dl.
+This is the base, and therefore smallest, image. It contains only `discord.py` with voice and docs support, including ffmpeg and yt-dlp.
 
 ### `discord.py:full`
 
