@@ -10,7 +10,7 @@ FROM python:$PYTHON_VERSION-alpine
 ARG BUILD_TIME=unknown
 ARG GIT_HEAD=unknown
 LABEL maintainer="Devon R <Gorialis>"
-LABEL creation_time="2026-04-15 16:01:41 UTC"
+LABEL creation_time="2026-04-15 16:12:38 UTC"
 LABEL build_time=$BUILD_TIME
 LABEL git_head=$GIT_HEAD
 
@@ -27,7 +27,7 @@ RUN \
 
 RUN \
     # basic deps
-    apk --no-cache add -q git mercurial cloc openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz \
+    apk --no-cache add -q git mercurial cloc curl openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz deno \
     # voice support
     libffi-dev libsodium-dev opus-dev ffmpeg && \
     # install rust with rustup
@@ -49,6 +49,7 @@ RUN \
     rustc --version && \
     # install deno
     curl -fsSL https://deno.land/install.sh | sh && \
+    ln -s /root/.deno/bin/deno /usr/bin/deno && \
     deno --version && \
     # do this symlink for numpy
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \

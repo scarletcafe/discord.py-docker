@@ -39,6 +39,7 @@ RUN apt-get update && \
     rustc --version && \
     # install deno
     curl -fsSL https://deno.land/install.sh | sh && \
+    ln -s /root/.deno/bin/deno /usr/bin/deno && \
     deno --version && \
     # do this symlink for numpy
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \

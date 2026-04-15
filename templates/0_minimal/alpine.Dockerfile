@@ -17,7 +17,7 @@ RUN \
 
 RUN \
     # basic deps
-    apk --no-cache add -q git mercurial cloc openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz \
+    apk --no-cache add -q git mercurial cloc curl openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz deno \
     # voice support
     libffi-dev libsodium-dev opus-dev ffmpeg && \
     # install rust with rustup
@@ -39,6 +39,7 @@ RUN \
     rustc --version && \
     # install deno
     curl -fsSL https://deno.land/install.sh | sh && \
+    ln -s /root/.deno/bin/deno /usr/bin/deno && \
     deno --version && \
     # do this symlink for numpy
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
