@@ -10,7 +10,7 @@ FROM python:$PYTHON_VERSION-alpine
 ARG BUILD_TIME=unknown
 ARG GIT_HEAD=unknown
 LABEL maintainer="Devon R <Gorialis>"
-LABEL creation_time="2026-04-15 16:12:38 UTC"
+LABEL creation_time="2026-04-16 15:32:42 UTC"
 LABEL build_time=$BUILD_TIME
 LABEL git_head=$GIT_HEAD
 
@@ -49,8 +49,6 @@ RUN \
     rustc --version && \
     # install deno
     curl -fsSL https://deno.land/install.sh | sh && \
-    ln -s /root/.deno/bin/deno /usr/bin/deno && \
-    deno --version && \
     # do this symlink for numpy
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
     # update pip, install Cython, pytest, yt-dlp
