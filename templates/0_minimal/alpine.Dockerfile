@@ -17,7 +17,7 @@ RUN \
 
 RUN \
     # basic deps
-    apk --no-cache add -q git mercurial cloc curl openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz deno \
+    apk --no-cache add -q git mercurial cloc curl openssl openssl-dev openssh alpine-sdk bash gettext sudo build-base gnupg linux-headers xz \
     # voice support
     libffi-dev libsodium-dev opus-dev ffmpeg && \
     # install rust with rustup
